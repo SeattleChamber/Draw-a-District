@@ -1,0 +1,6 @@
+<h2>Upload CSV</h2>
+
+<%= form_tag import_addresses_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
