@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
-  require 'csv'
-  
+
   def import
     Address.import(params[:file])
     redirect_to root_url, notice: "CSV successfully imported."
