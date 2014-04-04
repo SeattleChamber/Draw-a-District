@@ -1,5 +1,5 @@
 <% @addresses.each do |address| %>
-  <%= address.text %> [<%= address.lat %>, <%= address.long %>]<br>
+  <%= address.text %> <%= address.to_coordinates %><br>
 <% end %>
 
 <div id="googft-mapCanvas">

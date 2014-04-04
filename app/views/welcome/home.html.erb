@@ -4,13 +4,6 @@
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
-<h2>Upload CSV</h2>
-
-<%= form_tag import_addresses_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
 <script>
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -20,3 +13,10 @@
     handler.getMap().setZoom(1);
   });
 </script>
+
+<h2>Upload CSV</h2>
+
+<%= form_tag import_addresses_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
