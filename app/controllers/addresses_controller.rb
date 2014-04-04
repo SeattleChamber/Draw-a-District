@@ -9,6 +9,10 @@ class AddressesController < ApplicationController
     @addresses = Address.all
   end
 
+  def index
+    @addresses = Address.all
+  end
+
   def new
     @address = Address.new
   end
