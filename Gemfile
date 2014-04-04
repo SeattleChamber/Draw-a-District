@@ -9,6 +9,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem "mongoid", git: 'git://github.com/mongoid/mongoid.git'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'geocoder'
 
 group :doc do
   gem 'sdoc', require: false
