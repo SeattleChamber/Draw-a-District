@@ -7,6 +7,9 @@
 <script>
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    var kmls = handler.addKml(
+      { url: "https://s3-us-west-2.amazonaws.com/district-mapping/districts.kml" }
+    );
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
