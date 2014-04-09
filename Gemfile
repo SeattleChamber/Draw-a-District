@@ -12,6 +12,8 @@ gem "mongoid", git: 'git://github.com/mongoid/mongoid.git'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'geocoder'
+gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
+gem 'figaro'
 
 group :doc do
   gem 'sdoc', require: false
