@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/kimhunter/PointInPolygon.git
+  revision: 5937327e1dd4633f6e09b89344d050e56b90f7e6
+  specs:
+    pinp (0.1.0)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: fa57fca58a19b7eba4ac03cdaacee57a8924145e
   specs:
@@ -224,6 +230,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!
+  pinp!
   rails (= 4.0.4)
   rspec-rails
   rubocop
