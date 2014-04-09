@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-DrawADistrict::Application.config.secret_key_base = '9f1451afa5fbb980878ecfeeaa8d9c6a7bc91207eef68248499a36e38948b941d6f55eb67bfd6858629ad934ef51c174f2e1ef6fe0bf0f2c29766e6a75758e1b'
+DrawADistrict::Application.config.secret_key_base = ENV['SECRET_TOKEN']
