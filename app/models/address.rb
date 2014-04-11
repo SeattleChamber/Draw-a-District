@@ -12,7 +12,9 @@ class Address
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      Address.create! row.to_hash
+      address = Address.create row.to_hash
+      address.district = Atlas.districts_by_coordinates(address.to_coordinates)
+      address.save!
     end
   end
 
