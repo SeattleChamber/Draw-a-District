@@ -27,5 +27,8 @@ class Address
     end
   end
 
+  def self.column_names
+    self.fields.collect { |field| field[0] }
+  end
 
 end

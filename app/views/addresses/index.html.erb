@@ -4,6 +4,13 @@
  <%= address.text %> <%= address.to_coordinates %> <strong>District: </strong> <%= address.district %><br>
 <% end %>
 
+<br><br>
+
+<p>
+  Download:
+  <%= link_to "CSV", addresses_path(format: "csv") %> |
+</p>
+
 <div id="googft-mapCanvas">
   <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
 

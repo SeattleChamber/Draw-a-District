@@ -9,12 +9,16 @@ class AddressesController < ApplicationController
     @addresses = Address.all
     respond_to do |format|
       format.html
-      format.csv { send_data @addresses.to_csv }
+      format.csv { render text: @addresses.to_csv }
     end
   end
 
   def index
     @addresses = Address.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @addresses.to_csv }
+    end
   end
 
   def new
