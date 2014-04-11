@@ -14,6 +14,7 @@ gem 'underscore-rails'
 gem 'geocoder'
 gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
 gem 'figaro'
+gem 'gon'
 
 group :doc do
   gem 'sdoc', require: false

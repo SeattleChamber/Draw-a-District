@@ -82,6 +82,9 @@ GEM
     formatador (0.2.4)
     geocoder (1.1.9)
     gmaps4rails (2.1.2)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -226,6 +229,7 @@ DEPENDENCIES
   figaro
   geocoder
   gmaps4rails
+  gon
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails

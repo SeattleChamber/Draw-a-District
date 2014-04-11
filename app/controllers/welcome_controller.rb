@@ -6,6 +6,9 @@ class WelcomeController < ApplicationController
       marker.lat address.to_coordinates[0]
       marker.lng address.to_coordinates[1]
     end
+    gon.push({
+      :hash => @hash 
+    })
   end
 
 end
