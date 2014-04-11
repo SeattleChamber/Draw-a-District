@@ -7,10 +7,18 @@ class AddressesController < ApplicationController
 
   def show
     @addresses = Address.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @addresses.to_csv }
+    end
   end
 
   def index
     @addresses = Address.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @addresses.to_csv }
+    end
   end
 
   def new
@@ -29,4 +37,5 @@ class AddressesController < ApplicationController
   def address_params
     params.require(:address).permit(:text, :lat, :long, :district, :user_id)
   end
+
 end
