@@ -2,12 +2,15 @@ class AddressesController < ApplicationController
 
   def import
     Address.import(params[:file])
-    # @address.district = Atlas.districts_by_coordinates(@address.to_coordinates)
     redirect_to root_url, notice: "CSV successfully imported."
   end
 
   def show
     @addresses = Address.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @addresses.to_csv }
+    end
   end
 
   def index

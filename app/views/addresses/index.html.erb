@@ -1,5 +1,7 @@
+<%= THIS IS THE INDEX %>
+
 <% @addresses.each do |address| %>
- <%= address.text %> <%= address.to_coordinates %><br>
+ <%= address.text %> <%= address.to_coordinates %> <strong>District: </strong> <%= address.district %><br>
 <% end %>
 
 <div id="googft-mapCanvas">
