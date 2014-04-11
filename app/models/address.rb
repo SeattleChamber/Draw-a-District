@@ -2,8 +2,6 @@ class Address
   include Mongoid::Document
   field :text, type: String
   field :coordinates, type: Array
-  field :lat, type: String
-  field :long, type: String
   field :district, type: String
   field :user_id, type: Integer
   include Geocoder::Model::Mongoid
