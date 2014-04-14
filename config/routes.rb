@@ -1,5 +1,5 @@
 DrawADistrict::Application.routes.draw do
-  root to: "welcome#home"
+  root to: "addresses#index"
   resources :addresses do
     collection { post :import }
   end

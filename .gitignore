@@ -21,3 +21,6 @@ config/application.yml
 
 # Ignore the rails secret key
 config/initializers/secret_token.rb
+
+#Ignore simplecov
+/coverage/*
