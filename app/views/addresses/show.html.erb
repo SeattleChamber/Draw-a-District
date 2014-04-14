@@ -1,10 +1,26 @@
-<% @addresses.each do |address| %>
- <%= address.text %> <%= address.to_coordinates %> <strong>District: </strong><%= address.district %><br>
-<% end %>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Your Uploaded Addresses</div>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Coordinates</th>
+        <th>District</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr><td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <p>
   Download:
-  <%= link_to "CSV", addresses_path(format: "csv") %> |
+  <%= link_to "CSV", addresses_path(format: "csv") %> | <%= link_to "XLS", addresses_path(format: "csv") %>
 </p>
 
 <div id="googft-mapCanvas">
