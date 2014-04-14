@@ -1,14 +1,5 @@
 <h1>Prototype for District Mapping App</h1>
 
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div id="googft-mapCanvas">
+  <%= javascript_include_tag "districtsmap.js" %>
 </div>
-
-<%= javascript_include_tag "polymap.js" %>
-
-<h2>Upload CSV</h2>
-
-<%= form_tag import_addresses_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
