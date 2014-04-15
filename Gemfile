@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
 gem 'figaro'
 gem 'gon'
+gem 'therubyracer', platforms: :ruby
 
 group :doc do
   gem 'sdoc', require: false
@@ -31,4 +32,8 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
