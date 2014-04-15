@@ -13,7 +13,6 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'geocoder'
 gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
-gem 'figaro'
 gem 'gon'
 gem 'therubyracer', platforms: :ruby
 
