@@ -19,7 +19,7 @@ server 'ec2-54-186-140-120.us-west-2.compute.amazonaws.com',
   user: 'ubuntu',
   roles: %w{web app},
   ssh_options: {
-    keys: %w(/Users/akimz/.ssh/ENV['KEY_PAIR']),
+    keys: %w(/Users/akimz/.ssh/Hello-key-pair.pem),
     forward_agent: false,
     auth_methods: %w(publickey)
   }
