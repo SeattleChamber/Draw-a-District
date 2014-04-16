@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
 gem 'gon'
 gem 'therubyracer', platforms: :ruby
+gem 'devise' 
 
 group :doc do
   gem 'sdoc', require: false
