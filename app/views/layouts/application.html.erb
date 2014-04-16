@@ -30,12 +30,12 @@
       </ul>
       <div id="user_nav">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+        <p class="navbar-text navbar-right"><%= link_to 'Edit profile', edit_user_registration_path  %></p>
+        <p class="navbar-text navbar-right">Logged in as <strong><%= current_user.email %></strong>.</p>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> |
-          <%= link_to "Login", new_user_session_path %>
+          <p class="navbar-text navbar-right"><%= link_to "Login", new_user_session_path %></p>
+          <p class="navbar-text navbar-right"><%= link_to "Sign up", new_user_registration_path %></p>
         <% end %>
       </div>
     </div><!-- /.nav-collapse -->
@@ -44,7 +44,10 @@
 
 <br><br>
 
-<%= flash.notice %>
+<% if flash.notice %>
+  <div class="alert alert-info"><%= flash.notice %></div>
+<% end %>
+
 
 <%= yield %>
 
