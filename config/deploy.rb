@@ -74,5 +74,5 @@ namespace :figaro do
   end
 end
 after "deploy:started", "figaro:setup"
-# after "deploy:symlink:release", "figaro:symlink"
-before "deploy_precompile:assets", "figaro:symlink"
+after "deploy:symlink:release", "figaro:symlink"
+# before "deploy:assets:precompile", "figaro:symlink"
