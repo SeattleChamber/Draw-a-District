@@ -16,8 +16,8 @@ class Address
     end
   end
 
-  def self.to_csv
-    CSV.generate do |csv|
+  def self.to_csv(options)
+    CSV.generate(options) do |csv|
       csv << column_names
       all.each do |address|
         csv << address.attributes.values_at(*column_names)
