@@ -1,5 +1,6 @@
 class Address
   include Mongoid::Document
+  embedded_in :addresser, class_name: "User", inverse_of: :addresses
   field :text, type: String
   field :coordinates, type: Array
   field :district, type: String
@@ -8,9 +9,11 @@ class Address
   geocoded_by :text               # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 
-  def self.import(file)
+  def self.import(file, current_user)
     CSV.foreach(file.path, headers: true) do |row|
-      address = Address.create row.to_hash
+      hash = row.to_hash
+      address = current_user.addresses.build(hash)
+      address.geocode
       address.district = Atlas.districts_by_coordinates(address.to_coordinates)
       address.save!
     end
