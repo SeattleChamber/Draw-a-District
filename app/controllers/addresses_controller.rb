@@ -2,12 +2,12 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
 
   def import
-    Address.import(params[:file])
+    Address.import(params[:file], current_user)
     redirect_to addresses_path, notice: "CSV successfully imported."
   end
 
   def index
-    @addresses = Address.all
+    @addresses = current_user.addresses
     @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
       marker.lat address.to_coordinates[0]
       marker.lng address.to_coordinates[1]
