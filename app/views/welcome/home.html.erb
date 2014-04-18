@@ -1,5 +1,28 @@
-<h1>Prototype for District Mapping App</h1>
+<div class="page-header">
+  <h1 align="center">Map My Districts<br><small>An <a href="http://adadevelopersacademy.org">ADA</a> project.</small></h1>
+</div>
 
-<div id="googft-mapCanvas">
-  <%= javascript_include_tag "districtsmap.js" %>
+<div class="container marketing">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Welcome!</h2>
+        <p>
+          This app was conceived as a joint effort between <a href="http://askimz-firstsite.herokuapp.com">Anne Kimsey</a> of Ada Developers Academy Cohort[0] and the <a href="http://www.seattlechamber.com/Home.aspx">Seattle Chamber of Commerce</a>. Core features include:
+          <ul>
+            <li><strong>District Assignment</strong>: Instead of relying on hand drawn guestimations, Map My Districts allows you to upload bulk spreadsheets of Seattle addresses, which will in turn be geocoded and assigned a district in a new document for you to download at your convenience.</li>
+            <li><strong>Map Your Own Districts</strong>: Not in Seattle? Want to map voters in Paris par arrondisement? Geocache finds by neighborhood? Map My Districts allows you to draw your own districts on a map and see where points on a spreadsheet fall.</li>
+            <li><strong>Analytics</strong>: Provides graphical breakdowns of your documents. Tells you how many users you have in each district.</li>
+          <ul>
+        </p>
+        <p><%= render "devise/sessions/new" %></p>
+      </div>
+      <div class="col-lg-6">
+        <br><br><br><br>
+        <div id="googft-mapCanvas">
+          <%= javascript_include_tag "districtsmap.js" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -12,6 +12,7 @@
 <body>
 
 <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+  <a href="https://github.com/AKimZ/Draw-A-District"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,19 +21,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Map My Districts</a>
+<!--       <a class="navbar-brand" href="#">District Mapper</a> -->
     </div>
-    <div class="collapse navbar-collapse">
-      <div id="user_nav">
-        <% if user_signed_in? %>
-        <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
-        <p class="navbar-text navbar-right"><%= link_to 'Edit profile', edit_user_registration_path  %></p>
-        <p class="navbar-text navbar-right">Logged in as <strong><%= current_user.email %></strong>.</p>
-        <% else %>
-          <p class="navbar-text navbar-right"><%= link_to "Login", new_user_session_path %></p>
-          <p class="navbar-text navbar-right"><%= link_to "Sign up", new_user_registration_path %></p>
-        <% end %>
-      </div>
+    <div class="nav navbar-collapse pull-right">
+      <li class="dropdown open">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="http://askimz-firstsite.herokuapp.com">My Website</a></li>
+          <li><a href="http://www.google.com">Google</a></li>
+        </ul>
+      </li>
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
 </div>
