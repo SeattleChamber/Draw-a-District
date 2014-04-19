@@ -1,0 +1,2 @@
+class CustomMapController < ApplicationController
+end
