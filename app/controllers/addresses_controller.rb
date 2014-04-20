@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
   end
 
   def index
-    @addresses = current_user.addresses
+    @addresses = current_user.document.addresses
     @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
       marker.lat address.to_coordinates[0]
       marker.lng address.to_coordinates[1]
