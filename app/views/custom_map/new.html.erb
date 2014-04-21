@@ -7,9 +7,13 @@
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
     </style>
+
+
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?libraries=drawing&key=AIzaSyD7SglBOMy1dER995rCOrgpWam440GSre0&sensor=true">
     </script>
+
+
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
@@ -67,6 +71,7 @@
             polyset.push(array[i].A)
           }
           console.log(polyset)
+          $.post("/custom_map", {thing: polyset})
         });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
