@@ -13,7 +13,7 @@
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
+          center: new google.maps.LatLng(47.6130284,-122.3420645),
           zoom: 8
         };
 
@@ -39,7 +39,7 @@
         function handleNoGeolocation(errorFlag) {
           if (errorFlag == true) {
             alert("Geolocation service failed.");
-            initialLocation = newyork;
+            initialLocation = seattle;
           } else {
             alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
             initialLocation = siberia;
@@ -53,12 +53,22 @@
           drawingControlOptions: {
             position: google.maps.ControlPosition.TOP_CENTER,
             drawingModes: [
-              google.maps.drawing.OverlayType.POLYGON,
-              google.maps.drawing.OverlayType.RECTANGLE
+              google.maps.drawing.OverlayType.POLYGON
             ]
           }
         });
         drawingManager.setMap(map);
+        google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+          if (event.type == google.maps.drawing.OverlayType.POLYGON) {
+            console.log("Polygon!");
+            var array = event.overlay.getPath().getArray();
+            var length = array.length;
+            for (var i = 0; i < length; i++) {
+              console.log(array[i].k + ", " + array[i].A)
+            }
+            console.log(array);
+          }
+        });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
