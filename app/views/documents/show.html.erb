@@ -18,7 +18,7 @@
        </thead>
        <tbody>
          <% @addresses.each do |address| %>
-           <tr><td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district %></td></tr>
+           <tr><td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district.gsub(/[^0-9]/, '') %></td></tr>
          <% end %>
        </tbody>
      </table>

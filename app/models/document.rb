@@ -7,7 +7,7 @@ class Document
     CSV.generate(options) do |csv|
       csv << ["address", "coordinates", "district"]
       addresses.each do |address|
-        csv << [address.text, address.coordinates, address.district]
+        csv << [address.text, address.coordinates, address.district.gsub(/[^0-9]/, '')]
       end
     end
   end
