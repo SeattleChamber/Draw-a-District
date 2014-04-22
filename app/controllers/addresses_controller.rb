@@ -22,10 +22,4 @@ class AddressesController < ApplicationController
     end
   end
 
-  private
-
-  def address_params
-    params.require(:address).permit(:text, :lat, :long, :district, :user_id)
-  end
-
 end
