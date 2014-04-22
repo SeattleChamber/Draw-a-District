@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <% @documents.each do |document| %>
-          <tr><td><%= link_to document.name, document_path(document.id) %></td> <td> CSV | XLS </td></tr>
+          <tr><td><%= link_to document.name, document_path(document.id) %></td> <td><%= link_to "CSV", document_path(document.id, format: "csv") %> | <%= link_to "XLS", document_path(document.id, format: "xls") %></td></tr>
         <% end %>
       </tbody>
     </table>
