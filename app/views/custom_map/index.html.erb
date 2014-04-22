@@ -1,2 +1,7 @@
 <br><br><br><br><br>
-I'm the index!
+
+<% @maps.each do |map| %>
+
+  <%= link_to map.id, custom_map_path(map.id) %>
+
+<% end %>

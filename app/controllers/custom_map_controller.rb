@@ -13,15 +13,11 @@ class CustomMapController < ApplicationController
   end
 
   def show
+    @map = CustomMap.find(params[:id])
   end
 
   def index
-  end
-
-  private
-
-  def custom_map_params
-    params.require(:custom_map).permit(:name, :bounds)
+    @maps = CustomMap.all
   end
 
 end
