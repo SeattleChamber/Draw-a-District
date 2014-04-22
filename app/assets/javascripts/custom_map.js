@@ -56,7 +56,7 @@ function initialize() {
       polyset.push(empty);
     }
     console.log(polyset)
-    $.post("/custom_map", {thing: polyset})
+    $.post("/custom_map", {custom_map: {bounds: polyset}})
   });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
