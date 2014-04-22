@@ -50,8 +50,10 @@ function initialize() {
     var array = event.overlay.getPath().getArray();
     var length = array.length;
     for (var i = 0; i < length; i++) {
-      polyset.push(array[i].k);
-      polyset.push(array[i].A)
+      var empty = [];
+      empty.push(array[i].k);
+      empty.push(array[i].A);
+      polyset.push(empty);
     }
     console.log(polyset)
     $.post("/custom_map", {thing: polyset})
