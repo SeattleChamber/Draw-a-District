@@ -2,7 +2,7 @@
  <div class="col-lg-7">
    <p>
      Download:
-     <%= link_to "CSV", addresses_path(format: "csv") %> | <%= link_to "XLS", addresses_path(format: "xls") %>
+     <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %>
    </p>
    <div class="panel panel-default">
      <!-- Default panel contents -->

@@ -16,8 +16,8 @@ class DocumentsController < ApplicationController
     })
     respond_to do |format|
       format.html
-      format.csv { render text: @addresses.to_csv }
-      format.xls { send_data @addresses.to_csv(col_sep: "\t") }
+      format.csv { render text: @document.to_csv }
+      format.xls { send_data @document.to_csv(col_sep: "\t") }
     end
   end
 
