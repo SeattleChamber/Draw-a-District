@@ -1,0 +1,69 @@
+ <br><br>
+ <div class="col-lg-7">
+   <p>
+     Download:
+     <%= link_to "CSV", addresses_path(format: "csv") %> | <%= link_to "XLS", addresses_path(format: "xls") %>
+   </p>
+   <div class="panel panel-default">
+     <!-- Default panel contents -->
+     <div class="panel-heading">Addresses: <%= @document.name %></div>
+     <!-- Table -->
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Address</th>
+           <th>Coordinates</th>
+           <th>District</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @addresses.each do |address| %>
+           <tr><td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district %></td></tr>
+         <% end %>
+       </tbody>
+     </table>
+   </div>
+
+   <div class="panel panel-default">
+     <!-- Default panel contents -->
+     <div class="panel-heading">Upload Additional Addresses</div>
+     <!-- Table -->
+     <table class="table">
+       <thead>
+         <tr>
+           <%= form_tag import_addresses_path, multipart: true do %>
+             <th><%= file_field_tag :file %></th>
+             <th><%= submit_tag "Import" %></th>
+           <% end %>
+         </tr>
+       </thead>
+     </table>
+   </div>
+ </div>
+
+ <div class="col-lg-5">
+   <div class="container">
+     <br>
+     <div style='width: 400px;'>
+       <div id="map" style='width: 400px; height: 400px;'></div>
+     </div>
+ <!--     Eventual Legend -->
+ <!--     <div class="col-xs-2">
+       <ul>
+         <li>District 1</li>
+         <li>District 2</li>
+         <li>District 3</li>
+         <li>District 4</li>
+       </ul>
+     </div>
+     <div class="col-xs-2">
+       <ul>
+         <li>District 5</li>
+         <li>District 6</li>
+         <li>District 7</li>
+       </ul>
+     </div> -->
+
+     <%= javascript_include_tag "polymap.js" %>
+   <div class="container">
+ </div>
