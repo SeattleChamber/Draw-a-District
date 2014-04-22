@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
 
   def import
     Address.import(params[:file])
-    redirect_to addresses_path, notice: "CSV successfully imported."
+    redirect_to documents_path, notice: "CSV successfully imported."
   end
 
   def index
@@ -19,17 +19,6 @@ class AddressesController < ApplicationController
       format.html
       format.csv { render text: @addresses.to_csv }
       format.xls { send_data @addresses.to_csv(col_sep: "\t") }
-    end
-  end
-
-  def new
-    @address = Address.new
-  end
-
-  def create
-    @address = Address.new(address_params)
-    if @address.save
-      redirect_to root_url, notice: "Saved successfuly!"
     end
   end
 
