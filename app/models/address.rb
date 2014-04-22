@@ -23,17 +23,4 @@ class Address
     end
   end
 
-  def self.to_csv(options)
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |address|
-        csv << address.attributes.values_at(*column_names)
-      end
-    end
-  end
-
-  def self.column_names
-    self.fields.collect { |field| field[0] }
-  end
-
 end
