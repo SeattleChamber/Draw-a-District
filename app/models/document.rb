@@ -12,8 +12,4 @@ class Document
     end
   end
 
-  def column_names
-    self.fields.collect { |field| field[0] }
-  end
-
 end
