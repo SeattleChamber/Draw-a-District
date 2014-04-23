@@ -21,6 +21,7 @@ class CustomMapController < ApplicationController
     gon.push({
       :formatted_bounds => @formatted_bounds
     })
+    @documents = Document.all
   end
 
   def edit

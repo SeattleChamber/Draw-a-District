@@ -34,4 +34,21 @@
       </thead>
     </table>
   </div>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Custom Maps</div>
+    <!-- Table -->
+    <table class="table">
+      <tbody>
+        <tr>
+          <% @maps.each do |map| %>
+            <tr><td><%= link_to map.name, custom_map_path(map.id) %></tr></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <div class="panel-footer"><%= link_to "New Custom Map", new_custom_map_path %></div>
+  </div>
+
 </div>

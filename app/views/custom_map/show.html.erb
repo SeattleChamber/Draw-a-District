@@ -1,15 +1,48 @@
-<br><br><br><br><br>
+<br><br>
+<!-- <div class="name">
+  <%#= @map.name %>
+</div> -->
+<%#= @formatted_bounds %>
+<!-- <div class="update">
+  <%= render "edit" %>
+</div>
+<%= javascript_include_tag "name_custom_map.js" %> -->
 
-<%= @map.name %><br><br>
-
-<%= @formatted_bounds %>
+<div class="col-lg-7">
+  <br><br>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><%= render "edit" %></div>
+    <div class="panel-heading">Uploaded Documents</div>
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Download</th>
+          <th>Compare</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @documents.each do |document| %>
+          <tr><td><%= link_to document.name, document_path(document.id) %></td>
+          <td><%= link_to "CSV", document_path(document.id, format: "csv") %> | <%= link_to "XLS", document_path(document.id, format: "xls") %></td>
+          <td><%= link_to "Compare" %></td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br><br>
 
-<%= render "edit" %>
+<div class="col-lg-5">
+  <div class="container">
+    <div style='width: 800px;'>
+      <div id="custom_map" style='width: 500px; height: 600px;'></div>
+    </div>
 
-<%= javascript_include_tag "show_custom_map.js" %>
+    <%= javascript_include_tag "show_custom_map.js" %>
 
-<div style='width: 800px;'>
-  <div id="custom_map" style='width: 800px; height: 400px;'></div>
+  </div>
 </div>
