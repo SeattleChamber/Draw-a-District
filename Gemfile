@@ -5,7 +5,6 @@ gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem "mongoid", git: 'git://github.com/mongoid/mongoid.git'
@@ -15,7 +14,7 @@ gem 'geocoder'
 gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
 gem 'gon'
 gem 'therubyracer', platforms: :ruby
-gem 'devise' 
+gem 'devise'
 
 group :doc do
   gem 'sdoc', require: false
