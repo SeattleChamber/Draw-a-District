@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
 
   def index
     @documents = Document.all
+    @maps = CustomMap.all
   end
 
   def show
