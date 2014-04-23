@@ -10,18 +10,30 @@ class Atlas
       # check to see if a specific polygon contains the coordinate set
       if polygon[1].contains_point? Pinp::Point.new(*coords)
         # return the district name associated with the polygon if it does
-        # this logic will need to change if @polygon_array is changed to a hash
         district_found = polygon[0]
       end
     end
     return district_found
   end
 
+  def self.in_custom_map(map, coords)
+    polygon = Atlas.define_custom_bounds(map)
+    if polygon.contains_point? Pinp::Point.new(*coords)
+      return true
+    end
+  end
+
   private
+
+  def self.define_custom_bounds(custom_map)
+    formatted_bounds = custom_map.bounds.map {|set| [set[0].to_f, set[1].to_f] }
+    polygon = self.polygon(formatted_bounds)
+    return polygon
+  end
 
   def self.define_districts
     # associates a pinp objects with their district names and creates an array
-    polygon_array = [] # make this into a hash
+    polygon_array = []
     District.all.each do |district|
       new_district = Atlas.polygon(district.bounds)
       polygon_array << [district.name, new_district]
