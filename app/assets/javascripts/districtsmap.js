@@ -10,8 +10,8 @@ function initialize() {
   mapDiv.style.width = isMobile ? '100%' : '500px';
   mapDiv.style.height = isMobile ? '100%' : '300px';
   var map = new google.maps.Map(mapDiv, {
-    center: new google.maps.LatLng(47.623093219888034, -122.24589121624751),
-    zoom: 11,
+    center: new google.maps.LatLng(47.613860, -122.310703),
+    zoom: 10,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
