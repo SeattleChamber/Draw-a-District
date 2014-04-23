@@ -14,6 +14,14 @@ class CustomMapController < ApplicationController
 
   def show
     @map = CustomMap.find(params[:id])
+    bounds = @map.bounds
+    @formatted_bounds = []
+    bounds.each do |coords|
+      @formatted_bounds << {lat: coords[0].to_f, lng: coords[1].to_f}
+    end
+    gon.push({
+      :formatted_bounds => @formatted_bounds
+    })
   end
 
   def index

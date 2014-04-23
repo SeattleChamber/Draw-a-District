@@ -1,3 +1,9 @@
 <br><br><br><br><br>
 
-<%= @map.bounds %>
+<%= @formatted_bounds %>
+
+<%= javascript_include_tag "show_custom_map.js" %>
+
+<div style='width: 800px;'>
+  <div id="custom_map" style='width: 800px; height: 400px;'></div>
+</div>
