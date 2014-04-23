@@ -1,0 +1,37 @@
+<br><br>
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Uploaded Documents</div>
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @documents.each do |document| %>
+          <tr><td><%= link_to document.name, document_path(document.id) %></td> <td><%= link_to "CSV", document_path(document.id, format: "csv") %> | <%= link_to "XLS", document_path(document.id, format: "xls") %></td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Upload New Document</div>
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <%= form_tag import_addresses_path, multipart: true do %>
+            <th><%= file_field_tag :file %></th>
+            <th><%= submit_tag "Import" %></th>
+          <% end %>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>

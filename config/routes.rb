@@ -5,4 +5,5 @@ DrawADistrict::Application.routes.draw do
     collection { post :import }
   end
   resources :custom_map
+  resources :documents
 end
