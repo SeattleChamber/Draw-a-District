@@ -7,9 +7,8 @@ class CustomMapController < ApplicationController
 
   def create
     @map = CustomMap.new(name: params[:custom_map][:name], bounds: params[:custom_map][:bounds].values)
-    if @map.save
-      redirect_to root_url, notice: "Map saved successfully!"
-    end
+    @map.save
+    render json: @map.to_json
   end
 
   def show
@@ -24,8 +23,26 @@ class CustomMapController < ApplicationController
     })
   end
 
+  def edit
+    @map = CustomMap.find(params[:id])
+  end
+
+  def update
+    @map = CustomMap.find(params[:id])
+    if @map.update(map_params)
+      redirect_to custom_map_path(@map.id)
+      flash[:notice] = "Name changed!"
+    end
+  end
+
   def index
     @maps = CustomMap.all
+  end
+
+  private
+
+  def map_params
+    params.require(:custom_map).permit(:name, :bounds)
   end
 
 end

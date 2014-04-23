@@ -56,7 +56,18 @@ function initialize() {
       polyset.push(empty);
     }
     console.log(polyset)
-    $.post("/custom_map", {custom_map: {bounds: polyset}})
+    $.ajax("/custom_map", {
+      data: {custom_map: {bounds: polyset}},
+      type: "POST",
+      dataType: "JSON",
+      success: function(data) {
+        console.log(data)
+        window.location.href = "/custom_map/" + data._id.$oid
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        alert(textStatus)
+      }
+    })
   });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
