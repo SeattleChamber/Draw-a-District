@@ -23,22 +23,6 @@
        </tbody>
      </table>
    </div>
-
-   <div class="panel panel-default">
-     <!-- Default panel contents -->
-     <div class="panel-heading">Upload Additional Addresses</div>
-     <!-- Table -->
-     <table class="table">
-       <thead>
-         <tr>
-           <%= form_tag import_addresses_path, multipart: true do %>
-             <th><%= file_field_tag :file %></th>
-             <th><%= submit_tag "Import" %></th>
-           <% end %>
-         </tr>
-       </thead>
-     </table>
-   </div>
  </div>
 
  <div class="col-lg-5">
