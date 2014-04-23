@@ -21,5 +21,4 @@ class AddressesController < ApplicationController
       format.xls { send_data @addresses.to_csv(col_sep: "\t") }
     end
   end
-
 end
