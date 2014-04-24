@@ -1,7 +1,10 @@
 class CustomMapController < ApplicationController
 
   def new
-    #render layout: false
+    render layout: false
+    gon.push({
+      :authenticity_token => @authenticity_token
+      })
     @map = CustomMap.new
   end
 
