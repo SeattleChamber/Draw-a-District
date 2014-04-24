@@ -25,6 +25,8 @@ class CustomMapController < ApplicationController
       :formatted_bounds => @formatted_bounds
     })
     @documents = Document.all
+    @document = Document.first
+    @addresses = Document.first.addresses
   end
 
   def edit
