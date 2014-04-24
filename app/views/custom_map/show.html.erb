@@ -3,11 +3,16 @@
   <div class="panel panel-default">
     <!-- Default panel contents -->
     <% if @map.name %>
-        <div class="panel-heading"><%= @map.name %></div>
-        <div class="panel-heading">Uploaded Documents</div>
+      <style type="text/css">
+        h3 {
+          text-align: center;
+        }
+      </style>
+        <h3><%= @map.name %></h3>
+<!--         <div class="panel-heading">Uploaded Documents</div> -->
 
         <!-- Table -->
-        <table class="table">
+<!--         <table class="table">
           <thead>
             <tr>
               <th>Name</th>
@@ -22,18 +27,18 @@
               <td><%= link_to "Compare" %></td></tr>
             <% end %>
           </tbody>
-        </table>
+        </table> -->
 
       </div>
 
       <div class="panel panel-default">
-        <div class="panel-heading">In <%= @map.name %>?</div>
+        <div class="panel-heading">Is <%= @document.name %> in <%= @map.name %>?</div>
 
         <table class="table">
           <thead>
             <tr>
               <th>Address</th>
-              <th>Is <%= @document.name %> in <%= @map.name %>?</th>
+              <th>In <%= @map.name %>?</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +50,7 @@
         </table>
 
       </div>
-      
+
     <% else %>
       <div class="panel-heading"><%= render "edit" %></div>
     <% end %>
