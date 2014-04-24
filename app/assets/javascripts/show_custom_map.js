@@ -9,6 +9,6 @@ window.onload = function() {
   );
     handler.bounds.extendWith(polygon);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(8);
+    handler.getMap().setZoom(13);
   });
 }
