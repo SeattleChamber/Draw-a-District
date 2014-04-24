@@ -1,17 +1,11 @@
-<!-- <br><br>
-<div class="name">
-  <%= @map.name %>
-</div>
-<%= @formatted_bounds %>
-<div class="update">
-  <%= render "edit" %>
-</div> -->
-
 <div class="col-lg-7">
   <br><br>
   <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading"><%= render "edit" %></div>
+    <div class="update">
+      <% if @map.name %>
+        <div class="panel-heading"><%= @map.name %></div>
+    </div>
     <div class="panel-heading">Uploaded Documents</div>
     <!-- Table -->
     <table class="table">
@@ -31,6 +25,27 @@
       </tbody>
     </table>
   </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">In <%= @map.name %>?</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Is <%= @document.name %> in <%= @map.name %>?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |address| %>
+          <tr><td><%= address.text %></td>
+            <td><%= Atlas.in_custom_map(@map, address.coordinates.reverse!)%></td></tr>
+        <% end %>
+      </tbody>
+    <table class="table">
+  </div>
+      <% else %>
+        <div class="panel-heading"><%= render "edit" %></div>
+    <% end %>
+
 </div>
 
 <br><br>
@@ -41,10 +56,4 @@
       <div id="custom_map" style='width: 500px; height: 600px;'></div>
     </div>
   </div>
-</div>
-
-<div class="panel panel-default">
-  <% @addresses.each do |address| %>
-    <%= Atlas.in_custom_map(@map, address.coordinates.reverse!)%>
-  <% end %>
 </div>
