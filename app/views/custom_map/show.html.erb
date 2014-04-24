@@ -1,12 +1,11 @@
-<br><br>
-<!-- <div class="name">
-  <%#= @map.name %>
-</div> -->
-<%#= @formatted_bounds %>
-<!-- <div class="update">
-  <%= render "edit" %>
+<!-- <br><br>
+<div class="name">
+  <%= @map.name %>
 </div>
-<%= javascript_include_tag "name_custom_map.js" %> -->
+<%= @formatted_bounds %>
+<div class="update">
+  <%= render "edit" %>
+</div> -->
 
 <div class="col-lg-7">
   <br><br>
@@ -41,8 +40,11 @@
     <div style='width: 800px;'>
       <div id="custom_map" style='width: 500px; height: 600px;'></div>
     </div>
-
-    <%= javascript_include_tag "show_custom_map.js" %>
-
   </div>
+</div>
+
+<div class="panel panel-default">
+  <% @addresses.each do |address| %>
+    <%= Atlas.in_custom_map(@map, address.coordinates.reverse!)%>
+  <% end %>
 </div>

@@ -19,7 +19,9 @@ class Atlas
   def self.in_custom_map(map, coords)
     polygon = Atlas.define_custom_bounds(map)
     if polygon.contains_point? Pinp::Point.new(*coords)
-      return true
+      return "yes"
+    else
+      return "no"
     end
   end
 
