@@ -48,6 +48,7 @@
             <% end %>
           </tbody>
         </table>
+        <div class="panel-footer">Download: <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %></div>
 
       </div>
 
