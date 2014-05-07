@@ -15,6 +15,7 @@ gem 'pinp', git: 'git://github.com/kimhunter/PointInPolygon.git'
 gem 'gon'
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
+gem 'mongoid-rspec'
 
 group :doc do
   gem 'sdoc', require: false
