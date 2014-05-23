@@ -16,7 +16,7 @@ class Address
     @document.save!
     CSV.foreach(file.path, headers: true) do |row|
       hash = row.to_hash
-      address = @document.addresses.build(hash)
+      address = @document.addresses.build(hash.slice("text"))
       address.geocode
       address.district = Atlas.districts_by_coordinates(address.to_coordinates)
       address.save!
