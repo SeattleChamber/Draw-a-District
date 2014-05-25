@@ -10,6 +10,7 @@ class Address
   after_validation :geocode          # auto-fetch coordinates
 
   def self.import(file)
+    return false if file.blank?
     name = file.original_filename
     @document = Document.create!
     @document.name = name

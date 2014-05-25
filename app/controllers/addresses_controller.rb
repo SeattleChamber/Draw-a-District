@@ -2,8 +2,12 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
 
   def import
-    Address.import(params[:file])
-    redirect_to documents_path, notice: "CSV successfully imported."
+    @address = Address.import(params[:file])
+    if @address == false
+      redirect_to documents_path, notice: "Input field cannot be blank. Please select a spreadsheet and try again."
+    else
+      redirect_to documents_path, notice: "CSV successfully imported."
+    end
   end
 
   def index
