@@ -6,6 +6,14 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col-lg-6">
+        <br><br><br><br>
+        <div class="container">
+          <div id="googft-mapCanvas">
+            <%= javascript_include_tag "districtsmap.js" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
         <h2>Welcome!</h2>
         <p>
           This app was conceived as a joint effort between <a href="http://askimz-firstsite.herokuapp.com">Anne Kimsey</a> of Ada Developers Academy Cohort[0] and the <a href="http://www.seattlechamber.com/Home.aspx">Seattle Chamber of Commerce</a>. Core features include:
@@ -16,12 +24,6 @@
           <ul>
         </p>
         <p><%= render "devise/sessions/new" %></p>
-      </div>
-      <div class="col-lg-6">
-        <br><br><br><br>
-        <div id="googft-mapCanvas">
-          <%= javascript_include_tag "districtsmap.js" %>
-        </div>
       </div>
     </div>
   </div>
