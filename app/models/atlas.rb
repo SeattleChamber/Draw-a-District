@@ -4,7 +4,7 @@ class Atlas
     polygon_array = Atlas.define_districts
     # checks to see which district a point is in
     # iterate on each district in define_district
-    district_found = "no district"
+    district_found = "no districtt"
 
     polygon_array.each do |polygon|
       # check to see if a specific polygon contains the coordinate set

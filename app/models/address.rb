@@ -19,7 +19,7 @@ class Address
       hash = row.to_hash
       address = @document.addresses.build(hash.slice("text"))
       address.geocode
-      address.district = Atlas.districts_by_coordinates(address.to_coordinates)
+      address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
       address.save!
     end
   end
