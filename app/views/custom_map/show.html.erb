@@ -11,26 +11,28 @@
         <h3><%= @map.name %></h3>
 
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Is <%= @document.name %> in <%= @map.name %>?</div>
+      <% if @document %>
+        <div class="panel panel-default">
+          <div class="panel-heading">Is <%= @document.name %> in <%= @map.name %>?</div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Address</th>
-              <th>In <%= @map.name %>?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @addresses.each do |address| %>
-              <tr><td><%= address.text %></td>
-                <td><%= Atlas.in_custom_map(@map, address.coordinates.reverse!)%></td></tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="panel-footer">Download: <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %></div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>In <%= @map.name %>?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @addresses.each do |address| %>
+                <tr><td><%= address.text %></td>
+                  <td><%= Atlas.in_custom_map(@map, address.coordinates.reverse!)%></td></tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="panel-footer">Download: <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %></div>
 
-      </div>
+        </div>
+      <% end %>
 
     <% else %>
       <div class="panel-heading"><%= render "edit" %></div>
