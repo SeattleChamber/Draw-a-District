@@ -23,6 +23,19 @@
        </tbody>
      </table>
    </div>
+   <div class="panel panel-default">
+     <!-- Default panel contents -->
+     <div class="panel-heading">Compare Custom Maps</div>
+     <!-- Table -->
+     <table class="table">
+
+       <tbody>
+         <% CustomMap.all.each do |map| %>
+           <tr><td><%= link_to map.name, custom_map_path(map.id) + "?document=#{@document.id}"%></td></tr>
+         <% end %>
+       </tbody>
+     </table>
+   </div>
  </div>
 
  <div class="col-lg-5">
@@ -141,5 +154,6 @@
          });
        }
      </script>
+
    <div class="container">
  </div>
