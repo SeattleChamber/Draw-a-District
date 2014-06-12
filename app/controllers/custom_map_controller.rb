@@ -24,9 +24,8 @@ class CustomMapController < ApplicationController
     gon.push({
       :formatted_bounds => @formatted_bounds
     })
-    @documents = Document.all
-    @document = Document.first
-    @addresses = Document.first.addresses
+    @document = Document.find(params[:document])
+    @addresses = @document.addresses
   end
 
   def edit
