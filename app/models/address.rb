@@ -1,6 +1,7 @@
 class Address
   include Mongoid::Document
   embedded_in :addresser, class_name: "Document", inverse_of: :addresses
+  field :cust_id, type: String
   field :text, type: String
   field :coordinates, type: Array
   field :district, type: String
@@ -20,6 +21,7 @@ class Address
       address = @document.addresses.build(hash.slice("text"))
       address.geocode
       address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
+      address.cust_id = hash.slice("cust_id").values.join
       address.save!
     end
   end

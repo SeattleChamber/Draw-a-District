@@ -5,9 +5,9 @@ class Document
 
   def to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << ["address", "coordinates", "district"]
+      csv << ["customer id", "address", "coordinates", "district"]
       addresses.each do |address|
-        csv << [address.text, address.coordinates, address.district]
+        csv << [address.cust_id, address.text, address.coordinates, address.district]
       end
     end
   end
