@@ -6,6 +6,7 @@ class Address
   field :coordinates, type: Array
   field :district, type: String
   field :user_id, type: Integer
+  field :name, type: String
   include Geocoder::Model::Mongoid
   geocoded_by :text               # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
@@ -16,13 +17,21 @@ class Address
     @document = Document.create!
     @document.name = name
     @document.save!
+    i = 0
     CSV.foreach(file.path, headers: true) do |row|
-      hash = row.to_hash
-      address = @document.addresses.build(hash.slice("text"))
-      address.geocode
-      address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
-      address.cust_id = hash.slice("cust_id").values.join
-      address.save!
+      if i % 10 == 0
+        sleep 1
+        i = i + 1
+      else
+        hash = row.to_hash
+        address = @document.addresses.build(hash.slice("text"))
+        address.geocode
+        address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
+        address.cust_id = hash.slice("cust_id").values.join
+        address.name = hash.slice("company_nm").values.join
+        address.save!
+        i = i + 1
+      end
     end
   end
 

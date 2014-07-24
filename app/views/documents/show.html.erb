@@ -11,14 +11,15 @@
      <table class="table">
        <thead>
          <tr>
-           <th>Address</th>
-           <th>Coordinates</th>
-           <th>District</th>
+          <th>Company Name</th>
+          <th>Address</th>
+          <th>Coordinates</th>
+          <th>District</th>
          </tr>
        </thead>
        <tbody>
          <% @addresses.each do |address| %>
-           <tr><td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district %></td></tr>
+           <tr><td><%= address.name %></td> <td><%= address.text %></td> <td><%= address.to_coordinates %></td> <td><%= address.district %></td></tr>
          <% end %>
        </tbody>
      </table>
