@@ -1,9 +1,16 @@
- <br><br>
- <div class="col-lg-7">
-   <p>
+ <div class="panel panel-default">
+   <div class="container">
+     <br>
+       <div id="map" style='width: 100%; height: 500px;'></div>
+   </div>
+ </div>
+ <ul class="pager">
+  <li><h3><span class="label label-info">
      Download:
      <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %>
-   </p>
+   </span></h3></li>
+</ul>
+   
    <div class="panel panel-default">
      <!-- Default panel contents -->
      <div class="panel-heading"> <%= @document.name %></div>
@@ -39,12 +46,12 @@
    </div>
  </div>
 
- <div class="col-lg-5">
+<!--  <div class="col-lg-5">
    <div class="container">
      <br>
      <div style='width: 400px;'>
        <div id="map" style='width: 400px; height: 400px;'></div>
-     </div>
+     </div> -->
  <!--     Eventual Legend -->
  <!--     <div class="col-xs-2">
        <ul>
@@ -151,7 +158,8 @@
            markers = handler.addMarkers( gon.hash );
            handler.bounds.extendWith(markers);
            handler.fitMapToBounds();
-           handler.getMap().setZoom(10);
+           handler.getMap().setZoom(11);
+           handler.map.centerOn({lat: 47.607872, lng: -122.333821});
          });
        }
      </script>
