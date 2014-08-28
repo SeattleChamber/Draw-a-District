@@ -17,18 +17,15 @@ class Address
     @document = Document.create!
     @document.name = name
     @document.save!
-    i = 0
     CSV.foreach(file.path, headers: true) do |row|
-        hash = row.to_hash
-        address = @document.addresses.build(hash.slice("text"))
-        address.geocode
-        address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
-        address.cust_id = hash.slice("cust_id").values.join
-        address.name = hash.slice("company_nm").values.join
-        address.save!
-        sleep 1
-      end
+      hash = row.to_hash
+      address = @document.addresses.build(hash.slice("text"))
+      address.geocode
+      address.district = Atlas.districts_by_coordinates(address.to_coordinates).gsub(/\D\z/, '')
+      address.cust_id = hash.slice("cust_id").values.join
+      address.name = hash.slice("company_nm").values.join
+      address.save!
+      sleep 1
     end
   end
-
 end
