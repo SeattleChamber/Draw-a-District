@@ -19,10 +19,6 @@ class Address
     @document.save!
     i = 0
     CSV.foreach(file.path, headers: true) do |row|
-      if i % 10 == 0
-        sleep 1
-        i = i + 1
-      else
         hash = row.to_hash
         address = @document.addresses.build(hash.slice("text"))
         address.geocode
@@ -30,7 +26,7 @@ class Address
         address.cust_id = hash.slice("cust_id").values.join
         address.name = hash.slice("company_nm").values.join
         address.save!
-        i = i + 1
+        sleep 1
       end
     end
   end
