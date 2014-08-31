@@ -11,6 +11,7 @@ class DocumentsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
       marker.lat address.to_coordinates[0]
       marker.lng address.to_coordinates[1]
+      marker.infowindow render_to_string(:partial => "/addresses/tooltips", :locals => { :object => address})
     end
     gon.push({
       :hash => @hash
