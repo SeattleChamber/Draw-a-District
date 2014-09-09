@@ -7,11 +7,23 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    @addresses = @document.addresses
+    @error_queue = []
+    @addresses = []
+    @document.addresses.each do |address|
+      if address.district == "erro"
+        @error_queue.push(address)
+      else
+        @addresses.push(address)
+      end
+    end
     @hash = Gmaps4rails.build_markers(@addresses) do |address, marker|
-      marker.lat address.to_coordinates[0]
-      marker.lng address.to_coordinates[1]
-      marker.infowindow render_to_string(:partial => "/addresses/tooltips", :locals => { :object => address})
+      if address.district == "erro"
+        @error_queue.push(address)
+      else
+        marker.lat address.to_coordinates[0]
+        marker.lng address.to_coordinates[1]
+        marker.infowindow render_to_string(:partial => "/addresses/tooltips", :locals => { :object => address})
+      end
     end
     gon.push({
       :hash => @hash

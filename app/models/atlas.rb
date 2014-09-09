@@ -1,19 +1,27 @@
 class Atlas
 
+  def self.initialize
+    @polygon_array = Atlas.define_districts
+  end
+
   def self.districts_by_coordinates(coords)
-    polygon_array = Atlas.define_districts
+    self.initialize
     # checks to see which district a point is in
     # iterate on each district in define_district
-    district_found = "no districtt"
+    if coords != []
+      district_found = "no districtt"
+      @polygon_array.each do |polygon|
 
-    polygon_array.each do |polygon|
-      # check to see if a specific polygon contains the coordinate set
-      if polygon[1].contains_point? Pinp::Point.new(*coords)
-        # return the district name associated with the polygon if it does
-        district_found = polygon[0]
+        # check to see if a specific polygon contains the coordinate set
+        if polygon[1].contains_point? Pinp::Point.new(*coords)
+          # return the district name associated with the polygon if it does
+          district_found = polygon[0]
+        end
       end
+      return district_found
+    else
+      return "error"
     end
-    return district_found
   end
 
   def self.in_custom_map(map, coords)
