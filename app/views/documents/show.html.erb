@@ -10,7 +10,7 @@
      <%= link_to "CSV", document_path(params[:id], format: "csv") %> | <%= link_to "XLS", document_path(params[:id], format: "xls") %>
    </span></h3></li>
 </ul>
-   
+
    <div class="panel panel-default">
      <!-- Default panel contents -->
      <div class="panel-heading"> <%= @document.name %></div>
@@ -31,6 +31,27 @@
        </tbody>
      </table>
    </div>
+
+   <div class="panel panel-default">
+     <!-- Default panel contents -->
+     <div class="panel-heading">Error Queue</div>
+     <!-- Table -->
+     <table class="table">
+       <thead>
+         <tr>
+          <th>Customer ID</th>
+          <th>Company Name</th>
+          <th>Address</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @error_queue.each do |address| %>
+           <tr><td><%= address.cust_id %></td><td><%= address.name %></td> <td><%= address.text %></td></tr>
+         <% end %>
+       </tbody>
+     </table>
+   </div>
+
    <div class="panel panel-default">
      <!-- Default panel contents -->
      <div class="panel-heading">Compare Custom Maps</div>
