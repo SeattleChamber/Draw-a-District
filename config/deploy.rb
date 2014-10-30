@@ -2,14 +2,16 @@
 lock '3.1.0'
 
 set :application, 'draw-a-district'
-set :repo_url, 'git@github.com:AKimZ/Draw-a-District.git'
+set :repo_url, 'git@github.com:SeattleChamber/Draw-a-District.git'
 set :use_sudo, false
+
+set :deploy_to, '/var/www/draw-a-district'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/draw-a-district'
+# set :deploy_to, '/var/www/my_app'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -73,6 +75,6 @@ namespace :figaro do
     end
   end
 end
+
 after "deploy:started", "figaro:setup"
 after "deploy:symlink:release", "figaro:symlink"
-# before "deploy:assets:precompile", "figaro:symlink"
