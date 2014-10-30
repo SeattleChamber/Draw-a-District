@@ -27,6 +27,7 @@
         <% if user_signed_in? %>
         <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
         <p class="navbar-text navbar-right"><%= link_to 'Edit profile', edit_user_registration_path  %></p>
+        <p class="navbar-text navbar-right"><%= link_to 'All Users', user_list_path %></p>
         <p class="navbar-text navbar-right">Logged in as 
           <strong><%= current_user.email %>
             <%if current_user.admin == true%>

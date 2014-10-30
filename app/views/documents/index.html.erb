@@ -9,11 +9,17 @@
         <tr>
           <th>Name</th>
           <th>Download</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @documents.each do |document| %>
-          <tr><td><%= link_to document.name, document_path(document.id) %></td> <td><%= link_to "CSV", document_path(document.id, format: "csv") %> | <%= link_to "XLS", document_path(document.id, format: "xls") %></td></tr>
+          <tr><td><%= link_to document.name, document_path(document.id) %></td> 
+              <td><%= link_to "CSV", document_path(document.id, format: "csv") %></td>
+            <% if current_user.admin == true %>
+              <td><%= button_to "Delete", document, method: :delete %></td>
+            <% end %>
+          </tr>
         <% end %>
       </tbody>
     </table>
@@ -35,20 +41,26 @@
     </table>
   </div>
 
-  <div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading">Custom Maps</div>
-    <!-- Table -->
-<!--     <table class="table">
-      <tbody>
-        <tr>
-          <% @maps.each do |map| %>
-            <tr><td><%= link_to map.name, custom_map_path(map.id) %></tr></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table> -->
-    <div class="panel-footer"><%= link_to "New Custom Map", new_custom_map_path %></div>
+  <% if current_user.admin == true %>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Custom Maps <strong>(Feature in Beta: Admin Users Only)</strong></div>
+      <!-- Table -->
+      <table class="table">
+        <tbody>
+          <tr>
+            <% @maps.each do |map| %>
+              <tr>
+                <td><%= link_to map.name, custom_map_path(map.id) %></td>
+                <td><%= button_to "Delete", map, method: :delete %></td>
+              </tr>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel-footer"><%= button_to "New Custom Map", new_custom_map_path %></div>
+    </div>
+  <% end %>
+
   </div>
 
-</div>

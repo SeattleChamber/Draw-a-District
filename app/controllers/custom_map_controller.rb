@@ -44,6 +44,16 @@ class CustomMapController < ApplicationController
     @maps = CustomMap.all
   end
 
+  def destroy
+    @map = CustomMap.find(params[:id])
+    if current_user.admin == true
+      @map.destroy!
+      redirect_to :root, notice: 'Map Deleted'
+    else
+      flash[:notice] = "You do not have sufficient permissions to do that."
+    end
+  end
+
   private
 
   def map_params

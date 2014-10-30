@@ -6,4 +6,5 @@ DrawADistrict::Application.routes.draw do
   end
   resources :custom_map
   resources :documents
+  get "users/list" => "users#list", as: :user_list
 end

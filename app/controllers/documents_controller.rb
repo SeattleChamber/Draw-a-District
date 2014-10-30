@@ -35,4 +35,14 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def destroy
+    @document = Document.find(params[:id])
+    if current_user.admin == true
+      @document.destroy!
+      redirect_to :root, notice: 'Document Deleted'
+    else
+      flash[:notice] = "You do not have sufficient permissions to do that."
+    end
+  end
+
 end
